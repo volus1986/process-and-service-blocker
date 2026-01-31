@@ -55,7 +55,7 @@ function stopWindowsServiceSafe(serviceName) {
                 console.error(`Error output: ${stderr}`);
                 return reject();
             }
-            if (stdout.includes('RUNNING')) {
+            if (!stdout.includes('STOPPED')) {
                 stopService(serviceName);
                 disableService(serviceName);
             }

@@ -22,7 +22,7 @@ function stopService(serviceName: string): Promise<void> {
 }
 
 function disableService(serviceName: string): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve) => {
         exec(`sc config ${serviceName} start= disabled`, (err, stdout, stderr) => {
             if (err) {
                 console.error(`Error disabling service: ${err.message}`);
@@ -53,7 +53,7 @@ function stopWindowsServiceSafe(serviceName: string) {
                 return reject();
             }
 
-            if (stdout.includes('RUNNING')) {
+            if (!stdout.includes('STOPPED')) { // check is service stopped
                 stopService(serviceName);
                 disableService(serviceName);
             }

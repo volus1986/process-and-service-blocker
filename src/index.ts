@@ -7,7 +7,7 @@ import getProcessListByNames from "./shared/utils/processes/getProcessListByName
 
 console.log('Started');
 
-const correctServiceNames: Promise<string[]> = new Promise((resolve, reject) => {
+const correctServiceNames: Promise<string[]> = new Promise((resolve) => {
     getAllWindowsServices().then((allWindowsServices) => {
         const allServiceNames = allWindowsServices.map(s => s.Name);
 
