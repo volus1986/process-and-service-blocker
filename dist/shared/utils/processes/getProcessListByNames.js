@@ -12,29 +12,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = stopProcesses;
-const tree_kill_1 = __importDefault(require("tree-kill"));
-function killProcess(processDescriptor) {
-    const processName = processDescriptor.name;
-    const processPid = processDescriptor.pid;
-    try {
-        // Send SIGTERM (graceful stop)
-        (0, tree_kill_1.default)(processDescriptor.pid, 'SIGTERM');
-        console.log(`[KILLED] ${processName} (pid=${processPid})`);
-    }
-    catch (err) {
-        console.error(`[ERROR] Failed to kill pid=${processPid}: ${err}`);
-    }
-}
-function stopProcesses(processList) {
+exports.default = getProcessListByNames;
+const ps_list_1 = __importDefault(require("ps-list"));
+function getProcessListByNames(processNames) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            for (const proc of processList) {
-                killProcess(proc);
-            }
+            const processes = yield (0, ps_list_1.default)();
+            return processes.filter(p => processNames.includes(p.name));
         }
         catch (err) {
-            console.error('[ERROR] ps-list failed:', err);
+            console.error(err);
+            return [];
         }
     });
 }

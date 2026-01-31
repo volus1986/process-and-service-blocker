@@ -1,19 +1,5 @@
-import psList, {ProcessDescriptor} from 'ps-list';
 import treeKill from 'tree-kill';
-
-async function getProcessList(processNames:string[]) {
-    try {
-        const processes = await psList();
-
-        return processes.filter(p =>
-            processNames.includes(p.name)
-        );
-    } catch (err) {
-        console.error(err);
-
-        return [];
-    }
-}
+import {ProcessDescriptor} from "ps-list";
 
 function killProcess(processDescriptor: ProcessDescriptor) {
     const processName = processDescriptor.name;
@@ -31,11 +17,9 @@ function killProcess(processDescriptor: ProcessDescriptor) {
     }
 }
 
-export default async function stopProcesses(processNames:string[]) {
+export default async function stopProcesses(processList:ProcessDescriptor[]) {
     try {
-        const processes = await getProcessList(processNames);
-
-        for (const proc of processes) {
+        for (const proc of processList) {
             killProcess(proc);
         }
     } catch (err) {

@@ -1,28 +1,4 @@
-import {exec, execFile} from 'child_process';
-
-type AllWindowsServicesType = {Name: string, DisplayName: string, Status: number}[]
-export function getAllWindowsServices(): Promise<AllWindowsServicesType> {
-    return new Promise((resolve, reject) => {
-        const args = [
-            '-NoProfile',
-            '-Command',
-            'Get-Service | Select Name, DisplayName, Status | ConvertTo-Json'
-        ];
-
-        execFile('powershell', args, (error, stdout, stderr) => {
-            if (error) return reject(error);
-            if (stderr) return reject(new Error(stderr));
-
-            resolve(JSON.parse(stdout));
-        });
-    });
-}
-
-export const allWindowsServiceNames: Promise<string[]> = new Promise((resolve, reject) => {
-    getAllWindowsServices().then((allWindowsServices: AllWindowsServicesType) => {
-        resolve(allWindowsServices.map(s => s.Name))
-    })
-})
+import {exec} from 'child_process';
 
 function stopService(serviceName: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
@@ -64,7 +40,6 @@ function disableService(serviceName: string): Promise<void> {
     })
 }
 
-
 // Function to stop Windows service
 function stopWindowsServiceSafe(serviceName: string) {
     return new Promise<void>(async (resolve, reject) => {
@@ -79,16 +54,14 @@ function stopWindowsServiceSafe(serviceName: string) {
             }
 
             if (stdout.includes('RUNNING')) {
-                disableService(serviceName);
                 stopService(serviceName);
+                disableService(serviceName);
             }
 
             resolve();
         });
     })
 }
-
-
 
 export default async function stopServices(serviceNames: string[]): Promise<void> {
     return new Promise<void>(async (resolve) => {

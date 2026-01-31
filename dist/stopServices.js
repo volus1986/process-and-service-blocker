@@ -9,31 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.allWindowsServiceNames = void 0;
-exports.getAllWindowsServices = getAllWindowsServices;
 exports.default = stopServices;
 const child_process_1 = require("child_process");
-function getAllWindowsServices() {
-    return new Promise((resolve, reject) => {
-        const args = [
-            '-NoProfile',
-            '-Command',
-            'Get-Service | Select Name, DisplayName, Status | ConvertTo-Json'
-        ];
-        (0, child_process_1.execFile)('powershell', args, (error, stdout, stderr) => {
-            if (error)
-                return reject(error);
-            if (stderr)
-                return reject(new Error(stderr));
-            resolve(JSON.parse(stdout));
-        });
-    });
-}
-exports.allWindowsServiceNames = new Promise((resolve, reject) => {
-    getAllWindowsServices().then((allWindowsServices) => {
-        resolve(allWindowsServices.map(s => s.Name));
-    });
-});
 function stopService(serviceName) {
     return new Promise((resolve, reject) => {
         (0, child_process_1.exec)(`sc stop ${serviceName}`, (err, out, stopErr) => {
@@ -79,8 +56,8 @@ function stopWindowsServiceSafe(serviceName) {
                 return reject();
             }
             if (stdout.includes('RUNNING')) {
-                disableService(serviceName);
                 stopService(serviceName);
+                disableService(serviceName);
             }
             resolve();
         });
