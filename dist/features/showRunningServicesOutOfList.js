@@ -7,9 +7,9 @@ const stopItemNames_1 = require("../stopItemNames");
 const getAllWindowsServices_1 = __importDefault(require("../shared/utils/services/getAllWindowsServices"));
 const getCorrectServiceNames_1 = __importDefault(require("../shared/utils/services/getCorrectServiceNames"));
 (0, getAllWindowsServices_1.default)().then((allServices) => {
-    const allServiceNames = allServices.map(service => service.Name);
-    const correctServiceNames = (0, getCorrectServiceNames_1.default)(allServiceNames, stopItemNames_1.SERVICE_NAMES);
-    const filteredServiceNames = allServiceNames.filter(s => !correctServiceNames.includes(s));
-    allServices.forEach((service) => console.log(service));
-    // filteredServiceNames.forEach(serviceName => console.log(serviceName));
+    const allRunningServices = allServices.filter(s => s.Status !== 1);
+    const allRunningServiceNames = allRunningServices.map(service => service.Name);
+    const correctServiceNames = (0, getCorrectServiceNames_1.default)(allRunningServiceNames, stopItemNames_1.SERVICE_NAMES);
+    const filteredServices = allRunningServices.filter(s => !correctServiceNames.includes(s.Name));
+    filteredServices.forEach((service) => console.log(service.Name));
 });

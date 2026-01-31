@@ -28,7 +28,7 @@ function stopService(serviceName) {
     });
 }
 function disableService(serviceName) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         (0, child_process_1.exec)(`sc config ${serviceName} start= disabled`, (err, stdout, stderr) => {
             if (err) {
                 console.error(`Error disabling service: ${err.message}`);
@@ -55,7 +55,7 @@ function stopWindowsServiceSafe(serviceName) {
                 console.error(`Error output: ${stderr}`);
                 return reject();
             }
-            if (!stdout.includes('STOPPED')) {
+            if (!stdout.includes('STOPPED')) { // check is service stopped
                 stopService(serviceName);
                 disableService(serviceName);
             }

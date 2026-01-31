@@ -19,7 +19,7 @@ const getAllWindowsServices_1 = __importDefault(require("./shared/utils/services
 const getCorrectServiceNames_1 = __importDefault(require("./shared/utils/services/getCorrectServiceNames"));
 const getProcessListByNames_1 = __importDefault(require("./shared/utils/processes/getProcessListByNames"));
 console.log('Started');
-const correctServiceNames = new Promise((resolve, reject) => {
+const correctServiceNames = new Promise((resolve) => {
     (0, getAllWindowsServices_1.default)().then((allWindowsServices) => {
         const allServiceNames = allWindowsServices.map(s => s.Name);
         resolve((0, getCorrectServiceNames_1.default)(allServiceNames, stopItemNames_1.SERVICE_NAMES));
