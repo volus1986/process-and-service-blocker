@@ -1,4 +1,4 @@
-import psList, {ProcessDescriptor} from 'ps-list';
+import psList from 'ps-list';
 
 export default async function getProcessesOutOfList(processNames:string[]) {
     try {
