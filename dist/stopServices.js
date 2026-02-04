@@ -25,6 +25,8 @@ function stopService(serviceName) {
             console.log(`Service ${serviceName} stopped successfully.`);
             resolve();
         });
+    }).catch((err) => {
+        console.error(`Error stopping service: ${err.message}`);
     });
 }
 function disableService(serviceName) {

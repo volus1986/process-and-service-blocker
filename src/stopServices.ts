@@ -17,6 +17,8 @@ function stopService(serviceName: string): Promise<void> {
 
             resolve();
         });
+    }).catch((err) => {
+        console.error(`Error stopping service: ${err.message}`);
     })
 
 }
