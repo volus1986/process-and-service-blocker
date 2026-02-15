@@ -5,7 +5,7 @@ export const PROCESS_NAMES = [
     // 'SearchHost.exe', // windows search ...
     // 'RuntimeBroker.exe', // legitimate, essential Microsoft Windows system process located in C:\Windows\System32 that manages permissions for Universal Windows Platform (UWP) apps.
 
-    'spoolsv.exe', // Print Spooler, disable if no printer
+    // 'spoolsv.exe', // Print Spooler, disable if no printer
     'FaxService.exe', // Fax service, disable if unused
     'WMPNetworkSvc.exe', // Windows Media Player Network Sharing, for media streaming
     'XblGameSave.exe', // Xbox Game Save, only needed for Xbox games
@@ -75,7 +75,7 @@ export const PROCESS_NAMES = [
 
 export const SERVICE_NAMES = [
     'wuauserv', // windows update
-    'WSearch', // windows search
+    // 'WSearch', // windows search
     'MicrosoftEdgeElevationService', // microsoft edge browser
     'edgeupdate', // microsoft edge
     'edgeupdatem', // microsoft edge
@@ -91,7 +91,7 @@ export const SERVICE_NAMES = [
     'cbdhsvc_', // Cloud clipboard synchronization
     'CDPSvc', // Connected Devices Platform
     'CDPUserSvc_', // Per-user Connected Devices Platform
-    'DevicesFlowUserSvc_', // Device discovery / pairing flow
+    // 'DevicesFlowUserSvc_', // Device discovery (pairing) / pairing flow
     'DsSvc', // Delivery Optimization (P2P updates)
     'PhoneSvc', // Phone Link service
     'TapiSrv', // Telephony API service
@@ -128,7 +128,4 @@ export const SERVICE_NAMES = [
     // 'UdkUserSvc_', // Per-user UDK service (blocked by windows)
     // 'NPSMSvc_', // Per-user Network Policy Service (blocked by windows)
     // 'camsvc', // Capability Access Manager (safe if Store apps not used) (disable wifi on stop!!!)
-
-
-
 ]

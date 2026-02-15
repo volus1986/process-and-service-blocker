@@ -7,7 +7,7 @@ exports.PROCESS_NAMES = [
     'msedgewebview2.exe', // microsoft edge browser
     // 'SearchHost.exe', // windows search ...
     // 'RuntimeBroker.exe', // legitimate, essential Microsoft Windows system process located in C:\Windows\System32 that manages permissions for Universal Windows Platform (UWP) apps.
-    'spoolsv.exe', // Print Spooler, disable if no printer
+    // 'spoolsv.exe', // Print Spooler, disable if no printer
     'FaxService.exe', // Fax service, disable if unused
     'WMPNetworkSvc.exe', // Windows Media Player Network Sharing, for media streaming
     'XblGameSave.exe', // Xbox Game Save, only needed for Xbox games
@@ -71,7 +71,7 @@ exports.PROCESS_NAMES = [
 ];
 exports.SERVICE_NAMES = [
     'wuauserv', // windows update
-    'WSearch', // windows search
+    // 'WSearch', // windows search
     'MicrosoftEdgeElevationService', // microsoft edge browser
     'edgeupdate', // microsoft edge
     'edgeupdatem', // microsoft edge
@@ -86,7 +86,7 @@ exports.SERVICE_NAMES = [
     'cbdhsvc_', // Cloud clipboard synchronization
     'CDPSvc', // Connected Devices Platform
     'CDPUserSvc_', // Per-user Connected Devices Platform
-    'DevicesFlowUserSvc_', // Device discovery / pairing flow
+    // 'DevicesFlowUserSvc_', // Device discovery (pairing) / pairing flow
     'DsSvc', // Delivery Optimization (P2P updates)
     'PhoneSvc', // Phone Link service
     'TapiSrv', // Telephony API service
