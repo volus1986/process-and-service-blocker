@@ -63,12 +63,18 @@ export const PROCESS_NAMES = [
     'CrossDeviceResume.exe', // This executable is associated with the Cross Device Resume (XDR) feature, which allows continuity between Windows apps and apps on other platforms, enabling users to resume activities across devices.
     'WinStore.App.exe', // Microsoft Windows Store
 
+    'usoclient.exe', //  (Update Session Orchestrator) is a legitimate Windows system process located in C:\Windows\System32 that manages automatic updates, including checking, downloading, and installing them.
+    'MusNotificationUx.exe', // (Modern Update Settings Notification User Experience) that displays notifications for Windows updates and reboots.
+    'MoNotificationUx.exe', // (Notifications host process) is a legitimate Microsoft Windows component responsible for handling system notifications and user experience elements, often related to updates.
+    'MusNotification.exe', // (Modern Update Settings Notification Broker) is a legitimate Windows system process located in C:\Windows\System32. It manages notifications for Windows updates and Microsoft Store app updates, often displaying messages about pending restarts or new updates.
+
     // 'OpenConsole.exe', // Non-critical console utility
     // 'SystemSettings.exe', // Microsoft Windows system process, called "Settings"
     // 'TextInputHost.exe' // TextInputHost.exe is responsible for the text input process for Universal Windows Platform (UWP) apps. (auto restart)
     // 'StartMenuExperienceHost.exe', // StartMenuExperienceHost.exe is a legitimate Windows process that is responsible for managing the Start menu (auto restart)
     // 'ShellHost.exe', // system process in Microsoft Windows that is part of the operating system's user interface management framework. It primarily works to support and manage shell-related functions, such as rendering modern UWP (Universal Windows Platform) app interfaces and handling certain visual elements of the Windows Shell (auto restart)
     // 'ShellExperienceHost.exe', // manages core GUI elements like the Start Menu, Taskbar, Action Center, and desktop wallpaper slideshows
+
     // '', //
 
 ];
