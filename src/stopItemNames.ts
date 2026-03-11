@@ -58,7 +58,7 @@ export const PROCESS_NAMES = [
     'CloudExperienceHost.exe', // Windows setup / welcome screens, safe to disable
     'AggregatorHost.exe', // Windows telemetry
     'WindowsPackageManagerServer.exe', // Windows package manager
-    'backgroundTaskHost.exe', // Windows system process, primarily a host for Cortana and Microsoft Store app background activities
+    // 'backgroundTaskHost.exe', // Windows system process, primarily a host for Cortana and Microsoft Store app background activities
 
     'CrossDeviceResume.exe', // This executable is associated with the Cross Device Resume (XDR) feature, which allows continuity between Windows apps and apps on other platforms, enabling users to resume activities across devices.
     'WinStore.App.exe', // Microsoft Windows Store
