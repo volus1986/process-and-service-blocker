@@ -3,11 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SERVICE_NAMES = exports.PROCESS_NAMES = void 0;
 // Name of the process to terminate (example: notepad.exe)
 exports.PROCESS_NAMES = [
-    'OpenWith.exe', // microsoft store opener
-    'msedgewebview2.exe', // microsoft edge browser
     // 'SearchHost.exe', // windows search ...
     // 'RuntimeBroker.exe', // legitimate, essential Microsoft Windows system process located in C:\Windows\System32 that manages permissions for Universal Windows Platform (UWP) apps.
     // 'spoolsv.exe', // Print Spooler, disable if no printer
+    'msedgewebview2.exe', // microsoft edge browser
+    'OpenWith.exe', // microsoft store opener
     'FaxService.exe', // Fax service, disable if unused
     'WMPNetworkSvc.exe', // Windows Media Player Network Sharing, for media streaming
     'XblGameSave.exe', // Xbox Game Save, only needed for Xbox games
@@ -58,7 +58,6 @@ exports.PROCESS_NAMES = [
     'CloudExperienceHost.exe', // Windows setup / welcome screens, safe to disable
     'AggregatorHost.exe', // Windows telemetry
     'WindowsPackageManagerServer.exe', // Windows package manager
-    // 'backgroundTaskHost.exe', // Windows system process, primarily a host for Cortana and Microsoft Store app background activities
     'CrossDeviceResume.exe', // This executable is associated with the Cross Device Resume (XDR) feature, which allows continuity between Windows apps and apps on other platforms, enabling users to resume activities across devices.
     'WinStore.App.exe', // Microsoft Windows Store
     'usoclient.exe', //  (Update Session Orchestrator) is a legitimate Windows system process located in C:\Windows\System32 that manages automatic updates, including checking, downloading, and installing them.
@@ -66,16 +65,15 @@ exports.PROCESS_NAMES = [
     'MoNotificationUx.exe', // (Notifications host process) is a legitimate Microsoft Windows component responsible for handling system notifications and user experience elements, often related to updates.
     'MusNotification.exe', // (Modern Update Settings Notification Broker) is a legitimate Windows system process located in C:\Windows\System32. It manages notifications for Windows updates and Microsoft Store app updates, often displaying messages about pending restarts or new updates.
     // 'OpenConsole.exe', // Non-critical console utility
+    // 'backgroundTaskHost.exe', // Windows system process, primarily a host for Cortana and Microsoft Store app background activities
     // 'SystemSettings.exe', // Microsoft Windows system process, called "Settings"
     // 'TextInputHost.exe' // TextInputHost.exe is responsible for the text input process for Universal Windows Platform (UWP) apps. (auto restart)
     // 'StartMenuExperienceHost.exe', // StartMenuExperienceHost.exe is a legitimate Windows process that is responsible for managing the Start menu (auto restart)
     // 'ShellHost.exe', // system process in Microsoft Windows that is part of the operating system's user interface management framework. It primarily works to support and manage shell-related functions, such as rendering modern UWP (Universal Windows Platform) app interfaces and handling certain visual elements of the Windows Shell (auto restart)
     // 'ShellExperienceHost.exe', // manages core GUI elements like the Start Menu, Taskbar, Action Center, and desktop wallpaper slideshows
-    // '', //
 ];
 exports.SERVICE_NAMES = [
     'wuauserv', // windows update
-    // 'WSearch', // windows search
     'MicrosoftEdgeElevationService', // microsoft edge browser
     'edgeupdate', // microsoft edge
     'edgeupdatem', // microsoft edge
@@ -90,7 +88,6 @@ exports.SERVICE_NAMES = [
     'cbdhsvc_', // Cloud clipboard synchronization
     'CDPSvc', // Connected Devices Platform
     'CDPUserSvc_', // Per-user Connected Devices Platform
-    // 'DevicesFlowUserSvc_', // Device discovery (pairing) / pairing flow
     'DsSvc', // Delivery Optimization (P2P updates)
     'PhoneSvc', // Phone Link service
     'TapiSrv', // Telephony API service
@@ -99,15 +96,16 @@ exports.SERVICE_NAMES = [
     'SharedAccess', // Internet Connection Sharing (ICS)
     'WpnService', // Push notifications (system-wide)
     'TokenBroker', // Microsoft account auth broker (UWP)
-    // 'TimeBrokerSvc', // Background tasks for UWP apps (auto restart)
-    // 'WpnUserService_', // a critical Windows service responsible for managing local and push notifications for Windows apps, including tile updates, toast notifications, and raw data
-    ///////////////////////////////////////////////////////////
     'DPS', // Diagnostic Policy Service (safe if you don't use Windows diagnostics)
     'NcbService', // Network Connection Broker (Store/UWP apps)
     'ShellHWDetection', // AutoPlay (disable if not needed)
     'UsoSvc', // Update Orchestrator (disable only if you manage updates manually)
     'wlidsvc', // Microsoft Account Sign-in Assistant
     'WSAIFabricSvc', // Windows Subsystem for Android (if unused)
+    // 'WSearch', // windows search
+    // 'DevicesFlowUserSvc_', // Device discovery (pairing) / pairing flow
+    // 'TimeBrokerSvc', // Background tasks for UWP apps (auto restart)
+    // 'WpnUserService_', // a critical Windows service responsible for managing local and push notifications for Windows apps, including tile updates, toast notifications, and raw data
     // 'hidserv', // Human Interface Device (disable if no special HID devices) (necessary for multimedia buttons)
     // 'RmSvc', // Radio Management (airplane mode, radios) (blocked by windows)
     // 'StateRepository', // UWP app state (disable if no Store apps) (blocked by windows)
